@@ -8,7 +8,8 @@ async function fetchData() {
     try {
         const response = await fetch(apiUrl); // handle api calls
 
-      
+        if (!response.ok) { //Checks for errors
+            throw new Error(`Failed to fetch data: ${response.statusText}`); //give error message
         }
 
         const data = await response.json(); //converts json to js
