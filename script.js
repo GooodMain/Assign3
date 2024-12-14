@@ -8,8 +8,7 @@ async function fetchData() {
     try {
         const response = await fetch(apiUrl); // handle api calls
 
-        if (!response.ok) { //Checks for errors
-            throw new Error(`Failed to fetch data: ${response.statusText}`); //give error message
+      
         }
 
         const data = await response.json(); //converts json to js
@@ -28,6 +27,8 @@ async function fetchData() {
         return []; // Return an empty array if error
     }
 }
+
+
 
 // Display data in the table
 async function displayData() {
@@ -60,9 +61,13 @@ async function displayData() {
             `;
 
             tableBody.appendChild(row); //add new row
+
+
         });
 
         const tableContainer = document.getElementById("tableContainer");
+
+
         tableContainer.style.display = "block";
     } catch (error) {
         console.error("Error displaying data:", error); //log error for debugging
